@@ -1,9 +1,10 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-export default () => (
+export default ({ data }) => (
   <Layout>
-    <h1>About Pandas Eating Tons</h1>
+    <h1>{data.site.siteMetadata.title}</h1>
     <p>
       paleo McSweeney's swag retro vinyl ethical Etsy polaroid Helvetica twee
       scenester Tonx meh normcore Thundercats single-origin coffee shabby chic
@@ -31,3 +32,13 @@ export default () => (
     </p>
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
